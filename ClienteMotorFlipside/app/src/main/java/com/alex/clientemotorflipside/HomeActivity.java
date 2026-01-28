@@ -19,11 +19,22 @@ public class HomeActivity extends AppCompatActivity {
 
         // Buscar el botón
         Button btnPerfil = findViewById(R.id.btnIrPerfil);
+        Button btnCita = findViewById(R.id.btnPedirCita);
 
         // Al pulsar, vamos a ProfileActivity
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
+
+
+        btnCita.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, SolicitudCitaActivity.class);
+            startActivity(intent);
+        });
+
+
+
+
     }
 }

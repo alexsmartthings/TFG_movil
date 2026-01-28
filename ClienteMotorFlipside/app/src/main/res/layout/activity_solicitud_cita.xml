@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#ecf0f1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SOLICITAR REPARACIÓN"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona tu moto:"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerMotos"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dirección de recogida:"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/txtDireccionCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: Calle Principal 123, 2ºB"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:minLines="1"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Qué le pasa a la moto?"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/txtAveria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: No arranca y hace un ruido metálico..."
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:minLines="3"
+        android:gravity="top"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnEnviarSolicitud"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="ENVIAR SOLICITUD"
+        android:backgroundTint="#27ae60"/>
+
+    <Button
+        android:id="@+id/btnCancelarCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:backgroundTint="#95a5a6"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
