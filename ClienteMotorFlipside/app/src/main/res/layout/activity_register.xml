@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#ecf0f1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREAR CUENTA"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"
+        android:layout_marginBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/txtNombreReg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nombre Completo"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/txtTelefonoReg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Teléfono"
+        android:inputType="phone"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/txtEmailReg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Correo Electrónico"
+        android:inputType="textEmailAddress"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/txtPassReg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="REGISTRARSE"
+        android:backgroundTint="#27ae60"/>
+
+    <TextView
+        android:id="@+id/lblVolverLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Ya tienes cuenta? Inicia sesión"
+        android:textColor="#2980b9"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
