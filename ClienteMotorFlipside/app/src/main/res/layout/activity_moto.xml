@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#ecf0f1"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRAR MI MOTO"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"
+        android:layout_marginBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/txtMarcaMoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Marca (Ej: Yamaha)"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/txtModeloMoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Modelo (Ej: MT-07)"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/txtMatriculaMoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Matrícula (Ej: 1234-BBB)"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/txtAnoMoto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Año (Ej: 2020)"
+        android:inputType="number"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnGuardarMoto"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="GUARDAR MOTO"
+        android:backgroundTint="#2980b9"/>
+
+    <Button
+        android:id="@+id/btnCancelarMoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:textColor="#7f8c8d"
+        android:backgroundTint="#00FFFFFF"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

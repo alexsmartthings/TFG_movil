@@ -17,11 +17,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Buscar el botón
         Button btnPerfil = findViewById(R.id.btnIrPerfil);
         Button btnCita = findViewById(R.id.btnPedirCita);
+        Button btnAddMoto = findViewById(R.id.btnRegistrarMoto);
+        Button btnReparaciones = findViewById(R.id.btnVerReparaciones);
 
-        // Al pulsar, vamos a ProfileActivity
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
@@ -33,7 +33,13 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        btnAddMoto.setOnClickListener(v -> {
+            startActivity(new Intent(HomeActivity.this, ActivityMoto.class));
+        });
 
+        btnReparaciones.setOnClickListener(v -> {
+            startActivity(new Intent(HomeActivity.this, ListaReparacionesActivity.class));
+        });
 
 
     }
