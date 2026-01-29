@@ -5,39 +5,60 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_app"
     tools:context=".HomeActivity">
-
 
 
     <TextView
         android:id="@+id/lblBienvenida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BIENVENIDO!"
-        android:textColor="#e74c3c"
+        android:layout_width="134dp"
+        android:layout_height="60dp"
+        android:text="¡BIENVENIDO!"
+        android:textColor="#000000"
         android:textSize="16sp"
-        android:layout_marginTop="20dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="28dp" />
 
     <Button
         android:id="@+id/btnIrPerfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="66dp"
         android:backgroundTint="#3498db"
         android:text="VER MI PERFIL"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="95dp" />
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="158dp" />
 
+    <Button
+        android:id="@+id/btnVerReparaciones"
+        android:layout_width="207dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#e67e22"
+        android:text="Ver estado de tus reparaciones"
+        app:layout_constraintTop_toBottomOf="@+id/btnPedirCita"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp" />
 
     <Button
         android:id="@+id/btnPedirCita"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SOLICITAR REPARACIÓN"
+        android:layout_width="206dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#e67e22"
-        android:layout_marginTop="20dp"
+        android:text="SOLICITAR REPARACIÓN"
         app:layout_constraintTop_toBottomOf="@+id/btnIrPerfil"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="98dp"
+        android:layout_height="96dp"
+        app:srcCompat="@drawable/logo_taller"
+        tools:layout_editor_absoluteX="297dp"
+        tools:layout_editor_absoluteY="39dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
