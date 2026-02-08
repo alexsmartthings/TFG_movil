@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/lblMarcaModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yamaha MT-07"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2c3e50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/lblMatricula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234-BBB"
+            android:textSize="14sp"
+            android:background="#ecf0f1"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblMarcaModelo"/>
+
+        <TextView
+            android:id="@+id/lblInfoExtra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020 • 15000 km"
+            android:textSize="14sp"
+            android:textColor="#7f8c8d"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

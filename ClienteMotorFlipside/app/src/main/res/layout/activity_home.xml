@@ -8,6 +8,22 @@
     android:background="@drawable/fondoapp"
     android:padding="20dp">
 
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="122dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#73000B"
+        android:fontFamily="@font/cantana_normal"
+        android:text="CERRAR SESIÓN"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="100dp"
@@ -17,7 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_taller"
-        tools:srcCompat="@android:drawable/ic_menu_camera" />
+        tools:srcCompat="@android:drawable/ic_menu_camera"
+        app:layout_constraintTop_toBottomOf="@+id/btnCerrarSesion" />
 
     <TextView
         android:id="@+id/lblBienvenida"
