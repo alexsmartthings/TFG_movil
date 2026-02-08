@@ -5,76 +5,123 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_app"
-    tools:context=".HomeActivity">
+    android:background="@drawable/fondoapp"
+    android:padding="20dp">
 
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_taller"
+        tools:srcCompat="@android:drawable/ic_menu_camera" />
 
     <TextView
         android:id="@+id/lblBienvenida"
-        android:layout_width="134dp"
-        android:layout_height="60dp"
-        android:text="¡BIENVENIDO!"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="28dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="¡BIENVENID@!"
+        android:fontFamily="@font/anton_normal"
+        android:textColor="#2c3e50"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <TextView
+        android:id="@+id/lblSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestión de Taller MotorFlipside"
+        android:fontFamily="@font/anton_normal"
+        android:textColor="#F5F2F2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblBienvenida" />
 
     <Button
         android:id="@+id/btnIrPerfil"
-        android:layout_width="206dp"
-        android:layout_height="68dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#3498db"
-        android:text="VER MI PERFIL"
-        app:layout_constraintTop_toBottomOf="@+id/lblBienvenida"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp" />
+        android:text="MI PERFIL"
+        android:fontFamily="@font/cantana_normal"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnMisMotos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblSubtitulo" />
 
     <Button
-        android:id="@+id/btnVerReparaciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ESTADO DE MIS REPARACIONES"
-        android:backgroundTint="#34495e"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnIrPerfil"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btnPedirCita"
-        android:layout_width="206dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#e67e22"
-        android:text="SOLICITAR REPARACIÓN"
-        app:layout_constraintTop_toBottomOf="@+id/btnVerReparaciones"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp" />
-
+        android:id="@+id/btnMisMotos"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#9b59b6"
+        android:text="MIS MOTOS\n(Ver/Editar)"
+        android:fontFamily="@font/cantana_normal"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnIrPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/lblSubtitulo" />
 
     <Button
         android:id="@+id/btnRegistrarMoto"
-        android:layout_width="208dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#8e44ad"
-        android:text="AÑADIR MOTO A MI GARAJE"
-        app:layout_constraintTop_toBottomOf="@+id/btnPedirCita"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        android:text="AÑADIR\nMOTO"
+        android:fontFamily="@font/cantana_normal"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnPedirCita"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIrPerfil" />
 
+    <Button
+        android:id="@+id/btnPedirCita"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#e67e22"
+        android:text="SOLICITAR\nCITA"
+        android:fontFamily="@font/cantana_normal"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrarMoto"
+        app:layout_constraintTop_toBottomOf="@+id/btnIrPerfil" />
 
-
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="98dp"
-        android:layout_height="96dp"
-        app:srcCompat="@drawable/logo_taller"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="39dp"
-        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/btnVerReparaciones"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#2c3e50"
+        android:text="VER ESTADO DE MIS REPARACIONES"
+        android:fontFamily="@font/cantana_normal"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
