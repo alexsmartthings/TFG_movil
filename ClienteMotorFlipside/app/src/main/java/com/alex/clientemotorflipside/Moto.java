@@ -8,11 +8,10 @@ public class Moto {
     private String id_cliente;
     private String marca, modelo, matricula, color;
     private int kms;
-    private String ano;  // <--- CAMBIO IMPORTANTE: Ahora es String (Texto)
+    private String ano;  // <--- VOLVEMOS A STRING
 
     public Moto() {}
 
-    // Constructor actualizado a String
     public Moto(String marca, String modelo, String matricula, int kms, String ano, String color) {
         this.marca = marca;
         this.modelo = modelo;
@@ -44,8 +43,6 @@ public class Moto {
     public String getColor() { return color; }
     public void setColor(String color) { this.color = color; }
 
-    // --- AQUÍ ESTABA EL PROBLEMA ---
-    // Ahora leemos y escribimos Texto (String)
     @PropertyName("ano")
     public String getAno() { return ano; }
 

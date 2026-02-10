@@ -5,15 +5,16 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="#ecf0f1">
+    android:background="@drawable/fondo_login">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CREAR CUENTA"
-        android:textSize="28sp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="#2c3e50"
+        android:fontFamily="@font/cantana_normal"
+        android:textColor="#FFFFFF"
         android:layout_marginBottom="30dp"/>
 
     <EditText
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Nombre Completo"
+        android:fontFamily="@font/anton_normal"
         android:background="#FFFFFF"
         android:padding="10dp"
         android:layout_marginBottom="12dp"/>
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Teléfono"
+        android:fontFamily="@font/anton_normal"
         android:inputType="phone"
         android:background="#FFFFFF"
         android:padding="10dp"
@@ -40,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Correo Electrónico"
+        android:fontFamily="@font/anton_normal"
         android:inputType="textEmailAddress"
         android:background="#FFFFFF"
         android:padding="10dp"
@@ -50,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Contraseña"
+        android:fontFamily="@font/anton_normal"
         android:inputType="textPassword"
         android:background="#FFFFFF"
         android:padding="10dp"
@@ -60,14 +65,16 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="REGISTRARSE"
-        android:backgroundTint="#27ae60"/>
+        android:fontFamily="@font/cantana_normal"
+        android:textColor="#000000"
+        android:backgroundTint="#FFFFFF"/>
 
     <TextView
         android:id="@+id/lblVolverLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¿Ya tienes cuenta? Inicia sesión"
-        android:textColor="#2980b9"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:layout_marginTop="20dp"/>
 

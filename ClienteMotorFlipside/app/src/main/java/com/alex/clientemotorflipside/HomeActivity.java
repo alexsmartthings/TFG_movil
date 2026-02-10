@@ -49,19 +49,5 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, MisMotosActivity.class));
             });
         }
-        btnLogout.setOnClickListener(v -> {
-            // 1. Cerrar sesión en Firebase
-            FirebaseAuth.getInstance().signOut();
-
-            // 2. Volver a la pantalla de inicio (MainActivity / Login)
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-
-            // 3. ¡IMPORTANTE! Borrar el historial de pantallas
-            // Esto evita que el usuario pueda volver atrás pulsando el botón físico
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-            startActivity(intent);
-            finish();
-        });
     }
 }

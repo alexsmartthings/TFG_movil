@@ -4,16 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="#ecf0f1"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@drawable/fondo_normal">
 
     <TextView
+        android:id="@+id/lblTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REGISTRAR MI MOTO"
+        android:text="REGISTRAR UNA MOTO"
         android:textSize="24sp"
+        android:fontFamily="@font/cantana_normal"
         android:textStyle="bold"
-        android:textColor="#2c3e50"
+        android:textColor="#FFFFFF"
         android:layout_marginBottom="20dp"/>
 
     <EditText
@@ -21,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Marca (Ej: Yamaha)"
+        android:fontFamily="@font/anton_normal"
         android:background="#FFFFFF"
         android:padding="10dp"
         android:layout_marginBottom="10dp"/>
@@ -30,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Modelo (Ej: MT-07)"
+        android:fontFamily="@font/anton_normal"
         android:background="#FFFFFF"
         android:padding="10dp"
         android:layout_marginBottom="10dp"/>
@@ -39,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Color (Ej: Azul)"
+        android:fontFamily="@font/anton_normal"
         android:background="#FFFFFF"
         android:padding="10dp"
         android:layout_marginBottom="10dp"/>
@@ -48,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Matrícula (Ej: 1234-BBB)"
+        android:fontFamily="@font/anton_normal"
         android:background="#FFFFFF"
         android:padding="10dp"
         android:inputType="textCapCharacters"
@@ -58,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Año (Ej: 2020)"
+        android:fontFamily="@font/anton_normal"
         android:inputType="number"
         android:background="#FFFFFF"
         android:padding="10dp"
@@ -68,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Kilómetros Actuales"
+        android:fontFamily="@font/anton_normal"
         android:inputType="number"
         android:background="#FFFFFF"
         android:padding="10dp"
@@ -78,7 +86,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="GUARDAR MOTO"
-        android:backgroundTint="#2980b9"
+        android:textColor="#3C0B00"
+        android:fontFamily="@font/cantana_normal"
+        android:backgroundTint="#F8CAC4"
         android:textStyle="bold"/>
 
     <Button

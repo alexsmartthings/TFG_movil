@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ecf0f1"
+    android:background="@drawable/fondo_normal"
     android:padding="10dp">
 
     <TextView
@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:text="MIS REPARACIONES"
         android:textSize="24sp"
+        android:fontFamily="@font/cantana_normal"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"/>

@@ -27,6 +27,7 @@ public class MisMotosActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerMotos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemAnimator(null);
 
         // --- CORRECCIÓN DEL ERROR ---
         // He quitado el .orderBy("marca") para evitar el error de "Index needed".
@@ -40,16 +41,27 @@ public class MisMotosActivity extends AppCompatActivity {
 
         adapter = new MotosAdapter(options);
         recyclerView.setAdapter(adapter);
+        // --- NUEVO: ESCUCHAR EL CLIC ---
+        adapter.setOnItemClickListener((doc, position) -> {
+            Moto moto = doc.toObject(Moto.class);
+            String id = doc.getId(); // El ID del documento en Firebase
 
-        // HEMOS BORRADO EL adapter.setOnItemClickListener(...)
+            Intent intent = new Intent(MisMotosActivity.this, ActivityMoto.class);
 
-        // Botón añadir (Ese sí lo dejamos por si quiere registrar otra)
-        FloatingActionButton fab = findViewById(R.id.fabAddMoto);
-        if (fab != null) {
-            fab.setOnClickListener(v -> {
-                startActivity(new Intent(MisMotosActivity.this, ActivityMoto.class));
-            });
-        }
+            // Pasamos TODOS los datos a la otra pantalla
+            intent.putExtra("id_documento", id); // CLAVE: Si lleva ID, es editar
+            intent.putExtra("marca", moto.getMarca());
+            intent.putExtra("modelo", moto.getModelo());
+            intent.putExtra("matricula", moto.getMatricula());
+            intent.putExtra("color", moto.getColor());
+            intent.putExtra("kms", String.valueOf(moto.getKms()));
+            intent.putExtra("ano", moto.getAno()); // Recuerda que ahora es String
+
+            startActivity(intent);
+        });
+
+
+
     }
 
     @Override

@@ -10,13 +10,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:padding="16dp">
+
 
         <TextView
             android:id="@+id/lblMarcaModelo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yamaha MT-07"
+            android:fontFamily="@font/cantana_normal"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#2c3e50"
@@ -28,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1234-BBB"
+            android:fontFamily="@font/cantana_normal"
             android:textSize="14sp"
             android:background="#ecf0f1"
             android:paddingHorizontal="8dp"
@@ -41,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2020 • 15000 km"
+            android:fontFamily="@font/cantana_normal"
             android:textSize="14sp"
             android:textColor="#7f8c8d"
             app:layout_constraintEnd_toEndOf="parent"
