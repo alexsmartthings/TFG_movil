@@ -8,7 +8,7 @@ public class Moto {
     private String id_cliente;
     private String marca, modelo, matricula, color;
     private int kms;
-    private String ano;  // <--- VOLVEMOS A STRING
+    private String ano;
 
     public Moto() {}
 

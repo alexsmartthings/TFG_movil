@@ -27,7 +27,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // 1. Inicializar
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -39,21 +38,17 @@ public class ProfileActivity extends AppCompatActivity {
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
         btnVolver = findViewById(R.id.btnVolverHome);
 
-        // 3. Cargar datos
         cargarDatosUsuario();
 
-        // 4. Botón Cerrar Sesión
         btnCerrarSesion.setOnClickListener(v -> {
             mAuth.signOut(); // Esto borra la sesión del móvil
 
-            // Volvemos al Login y borramos el historial para no poder volver atrás
             Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         });
 
-        // 5. Botón Volver
         btnVolver.setOnClickListener(v -> finish());
     }
 
@@ -61,20 +56,16 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
 
         if (user != null) {
-            // Datos que ya tenemos gracias al Login (Auth)
             lblEmail.setText(user.getEmail());
             String uid = user.getUid();
 
-            // Datos que faltan: Vamos a Firestore a por ellos
             db.collection("users").document(uid).get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
-                            // El documento existe, sacamos los campos
                             String nombre = documentSnapshot.getString("nombre");
                             String telefono = documentSnapshot.getString("telefono");
                             String rol = documentSnapshot.getString("rol");
 
-                            // Actualizamos la pantalla
                             lblNombre.setText(nombre != null ? nombre : "Sin nombre");
                             lblTelefono.setText(telefono != null ? telefono : "Sin teléfono");
                             lblRol.setText(rol != null ? rol : "Usuario");

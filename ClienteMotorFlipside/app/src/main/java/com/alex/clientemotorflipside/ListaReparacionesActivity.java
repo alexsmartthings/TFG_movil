@@ -33,7 +33,6 @@ public class ListaReparacionesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerReparaciones);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicializamos el adaptador vacío
         adapter = new ReparacionesAdapter(listaCitas);
         recyclerView.setAdapter(adapter);
 
@@ -43,10 +42,8 @@ public class ListaReparacionesActivity extends AppCompatActivity {
     private void cargarMisReparaciones() {
         String uid = mAuth.getCurrentUser().getUid();
 
-        // Consulta: Citas de ESTE cliente, ordenadas por fecha (más recientes primero)
         db.collection("citas")
                 .whereEqualTo("id_cliente", uid)
-                // .orderBy("fecha_solicitud", Query.Direction.DESCENDING) // OJO: Requiere crear índice en Firebase
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     listaCitas.clear();
@@ -55,7 +52,7 @@ public class ListaReparacionesActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "No tienes reparaciones activas", Toast.LENGTH_SHORT).show();
                     }
-                    adapter.notifyDataSetChanged(); // Refresca la lista visualmente
+                    adapter.notifyDataSetChanged(); // Reinicia la lista visualmente
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error al cargar: " + e.getMessage(), Toast.LENGTH_SHORT).show();

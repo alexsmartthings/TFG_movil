@@ -32,13 +32,11 @@ public class ReparacionesAdapter extends RecyclerView.Adapter<ReparacionesAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DocumentSnapshot doc = listaCitas.get(position);
 
-        // 1. Extraer datos
         String moto = doc.getString("moto_resumen");
         String averia = doc.getString("descripcion_averia");
         String estado = doc.getString("estado");
         Timestamp fecha = doc.getTimestamp("fecha_solicitud");
 
-        // 2. Rellenar textos
         holder.txtMoto.setText(moto != null ? moto : "Moto sin nombre");
         holder.txtEstado.setText("ESTADO: " + (estado != null ? estado : "DESCONOCIDO"));
         holder.txtAveria.setText(averia);
@@ -48,7 +46,6 @@ public class ReparacionesAdapter extends RecyclerView.Adapter<ReparacionesAdapte
             holder.txtFecha.setText(sdf.format(fecha.toDate()));
         }
 
-        // 3. CAMBIAR COLOR SEGÚN ESTADO (Igual que en escritorio)
         String colorHex = "#95a5a6"; // Gris por defecto
         if ("PENDIENTE".equals(estado)) colorHex = "#f1c40f"; // Amarillo
         else if ("EN_RECOGIDA".equals(estado)) colorHex = "#3498db"; // Azul

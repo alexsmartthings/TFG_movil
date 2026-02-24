@@ -27,7 +27,6 @@ public class SolicitudCitaActivity extends AppCompatActivity {
     private EditText txtDireccion, txtAveria;
     private Button btnEnviar, btnCancelar;
 
-    // Para guardar los IDs de las motos y saber cuál eligió
     private List<String> listaNombresMotos = new ArrayList<>();
     private List<String> listaIdsMotos = new ArrayList<>();
 
@@ -48,7 +47,6 @@ public class SolicitudCitaActivity extends AppCompatActivity {
         btnEnviar = findViewById(R.id.btnEnviarSolicitud);
         btnCancelar = findViewById(R.id.btnCancelarCita);
 
-        // 1. Cargar datos iniciales
         cargarMisMotos();
         cargarMiDireccion();
 
@@ -59,7 +57,6 @@ public class SolicitudCitaActivity extends AppCompatActivity {
     private void cargarMisMotos() {
         String uid = mAuth.getCurrentUser().getUid();
 
-        // Buscamos SOLO las motos de este cliente
         db.collection("motos")
                 .whereEqualTo("id_cliente", uid)
                 .get()
@@ -72,14 +69,13 @@ public class SolicitudCitaActivity extends AppCompatActivity {
                         String modelo = doc.getString("modelo");
 
                         listaNombresMotos.add(marca + " " + modelo);
-                        listaIdsMotos.add(doc.getId()); // Guardamos el ID oculto
+                        listaIdsMotos.add(doc.getId());
                     }
 
                     if (listaNombresMotos.isEmpty()) {
                         listaNombresMotos.add("No tienes motos registradas");
                     }
 
-                    // Rellenar el Spinner visualmente
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(
                             this, android.R.layout.simple_spinner_dropdown_item, listaNombresMotos);
                     spinnerMotos.setAdapter(adapter);
@@ -87,12 +83,11 @@ public class SolicitudCitaActivity extends AppCompatActivity {
     }
 
     private void cargarMiDireccion() {
-        // Truco pro: Intentamos pre-rellenar la dirección desde su perfil
         String uid = mAuth.getCurrentUser().getUid();
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(doc -> {
                     if (doc.exists()) {
-                        String dir = doc.getString("direccion"); // Asegúrate de tener este campo en users
+                        String dir = doc.getString("direccion");
                         if (dir != null) {
                             txtDireccion.setText(dir);
                         }
@@ -115,26 +110,23 @@ public class SolicitudCitaActivity extends AppCompatActivity {
             return;
         }
 
-        // Recuperamos los datos de la moto seleccionada
         String idMotoSeleccionada = listaIdsMotos.get(posicionMoto);
         String nombreMoto = listaNombresMotos.get(posicionMoto);
 
-        // CREAR EL OBJETO CITA
         Map<String, Object> cita = new HashMap<>();
         cita.put("id_cliente", mAuth.getCurrentUser().getUid());
         cita.put("email_cliente", mAuth.getCurrentUser().getEmail());
         cita.put("id_moto", idMotoSeleccionada);
-        cita.put("moto_resumen", nombreMoto); // Para ver rápido qué moto es en la tabla
+        cita.put("moto_resumen", nombreMoto);
         cita.put("direccion_recogida", direccion);
         cita.put("descripcion_averia", averia);
-        cita.put("estado", "PENDIENTE"); // <--- IMPORTANTE: El empleado buscará este estado
+        cita.put("estado", "PENDIENTE");
         cita.put("fecha_solicitud", FieldValue.serverTimestamp());
 
-        // Guardar en Firestore
         db.collection("citas").add(cita)
                 .addOnSuccessListener(docRef -> {
                     Toast.makeText(this, "¡Solicitud Enviada! Pasaremos a buscarla.", Toast.LENGTH_LONG).show();
-                    finish(); // Cierra la ventana y vuelve al Home
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error al enviar: " + e.getMessage(), Toast.LENGTH_SHORT).show();

@@ -21,7 +21,7 @@ public class ActivityMoto extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
 
-    // Variable para saber si estamos editando (tendrá texto) o creando (será null)
+    // Variable para saber si se edita (tendrá texto) o crea (será null)
     private String motoId = null;
 
     @Override
@@ -32,7 +32,6 @@ public class ActivityMoto extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        // 1. VINCULAR VISTAS (Usando tus IDs correctos)
         lblTitulo = findViewById(R.id.lblTitulo);
         txtMarca = findViewById(R.id.txtMarcaMoto);
         txtModelo = findViewById(R.id.txtModeloMoto);
@@ -43,11 +42,10 @@ public class ActivityMoto extends AppCompatActivity {
         btnGuardar = findViewById(R.id.btnGuardarMoto);
         btnCancelar = findViewById(R.id.btnCancelarMoto);
 
-        // 2. VERIFICAR SI VENIMOS A EDITAR
         if (getIntent().hasExtra("id_documento")) {
             motoId = getIntent().getStringExtra("id_documento");
 
-            // Rellenar campos con los datos que pasamos desde la lista
+            // rellena campos con los datos que pasamos desde la lista
             txtMarca.setText(getIntent().getStringExtra("marca"));
             txtModelo.setText(getIntent().getStringExtra("modelo"));
             txtMatricula.setText(getIntent().getStringExtra("matricula"));
@@ -55,7 +53,7 @@ public class ActivityMoto extends AppCompatActivity {
             txtColor.setText(getIntent().getStringExtra("color"));
             txtKms.setText(getIntent().getStringExtra("kms"));
 
-            btnGuardar.setText("ACTUALIZAR MOTO"); // Cambio visual
+            btnGuardar.setText("ACTUALIZAR MOTO");
             lblTitulo.setText("EDITAR MOTO");
         }
 
@@ -79,19 +77,17 @@ public class ActivityMoto extends AppCompatActivity {
         int kms = 0;
         try { if (!kmsStr.isEmpty()) kms = Integer.parseInt(kmsStr); } catch (Exception e) {}
 
-        // Preparamos el mapa de datos
         Map<String, Object> moto = new HashMap<>();
         moto.put("marca", marca);
         moto.put("modelo", modelo);
         moto.put("matricula", matricula);
-        moto.put("ano", ano); // Se guarda como String (correcto)
+        moto.put("ano", ano);
         moto.put("color", color);
         moto.put("kms", kms);
 
-        // Estos campos solo los ponemos si es nueva o si queremos asegurarnos que no se pierden
         moto.put("id_cliente", mAuth.getCurrentUser().getUid());
 
-        // DECISIÓN: ¿CREAR O ACTUALIZAR?
+        // elige si quiere actualizar o crear
         if (motoId != null) {
             // --- MODO EDICIÓN ---
             db.collection("motos").document(motoId)
@@ -102,7 +98,6 @@ public class ActivityMoto extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show());
         } else {
-            // --- MODO CREACIÓN ---
             moto.put("fecha_registro", FieldValue.serverTimestamp()); // Solo al crear
 
             db.collection("motos").add(moto)

@@ -24,10 +24,8 @@ public class MotosAdapter extends FirestoreRecyclerAdapter<Moto, MotosAdapter.Mo
         holder.lblMatricula.setText(model.getMatricula());
         holder.lblInfoExtra.setText(model.getAno() + " • " + model.getKms() + " km");
 
-        // Cuando hacemos clic en una tarjeta...
         holder.itemView.setOnClickListener(v -> {
             if (listener != null && position != RecyclerView.NO_POSITION) {
-                // Enviamos el documento (para sacar el ID) y la posición
                 listener.onItemClick(getSnapshots().getSnapshot(position), position);
             }
         });
@@ -51,7 +49,6 @@ public class MotosAdapter extends FirestoreRecyclerAdapter<Moto, MotosAdapter.Mo
         }
     }
 
-    // --- INTERFAZ PARA EL CLIC ---
     public interface OnItemClickListener {
         void onItemClick(DocumentSnapshot documentSnapshot, int position);
     }

@@ -24,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
         Button btnAddMoto = findViewById(R.id.btnRegistrarMoto);
         Button btnReparaciones = findViewById(R.id.btnVerReparaciones);
         Button btnMisMotos = findViewById(R.id.btnMisMotos);
-        Button btnLogout = findViewById(R.id.btnCerrarSesion);
 
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);

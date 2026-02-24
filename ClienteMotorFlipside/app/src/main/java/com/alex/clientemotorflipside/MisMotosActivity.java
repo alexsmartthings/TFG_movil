@@ -29,9 +29,6 @@ public class MisMotosActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(null);
 
-        // --- CORRECCIÓN DEL ERROR ---
-        // He quitado el .orderBy("marca") para evitar el error de "Index needed".
-        // Ahora solo filtra por tu usuario.
         Query query = db.collection("motos")
                 .whereEqualTo("id_cliente", uid);
 
@@ -41,26 +38,22 @@ public class MisMotosActivity extends AppCompatActivity {
 
         adapter = new MotosAdapter(options);
         recyclerView.setAdapter(adapter);
-        // --- NUEVO: ESCUCHAR EL CLIC ---
         adapter.setOnItemClickListener((doc, position) -> {
             Moto moto = doc.toObject(Moto.class);
-            String id = doc.getId(); // El ID del documento en Firebase
+            String id = doc.getId();
 
             Intent intent = new Intent(MisMotosActivity.this, ActivityMoto.class);
 
-            // Pasamos TODOS los datos a la otra pantalla
-            intent.putExtra("id_documento", id); // CLAVE: Si lleva ID, es editar
+            intent.putExtra("id_documento", id);
             intent.putExtra("marca", moto.getMarca());
             intent.putExtra("modelo", moto.getModelo());
             intent.putExtra("matricula", moto.getMatricula());
             intent.putExtra("color", moto.getColor());
             intent.putExtra("kms", String.valueOf(moto.getKms()));
-            intent.putExtra("ano", moto.getAno()); // Recuerda que ahora es String
+            intent.putExtra("ano", moto.getAno());
 
             startActivity(intent);
         });
-
-
 
     }
 
