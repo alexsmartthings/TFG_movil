@@ -89,7 +89,6 @@ public class ActivityMoto extends AppCompatActivity {
 
         // elige si quiere actualizar o crear
         if (motoId != null) {
-            // --- MODO EDICIÓN ---
             db.collection("motos").document(motoId)
                     .update(moto)
                     .addOnSuccessListener(aVoid -> {
@@ -98,7 +97,7 @@ public class ActivityMoto extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show());
         } else {
-            moto.put("fecha_registro", FieldValue.serverTimestamp()); // Solo al crear
+            moto.put("fecha_registro", FieldValue.serverTimestamp());
 
             db.collection("motos").add(moto)
                     .addOnSuccessListener(doc -> {
